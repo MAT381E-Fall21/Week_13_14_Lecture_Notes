@@ -52,46 +52,6 @@ class: left
 * Introduction to `Shiny` package.  
 * Examples.
 
-
----
-#### <span style="color:red"> Some important notes on Interim report</span> 
-<p> 
-<ul>
-<li> State your aim and provide some information on your topic.</li>
-<li> Provide information on your data set (do not expect us to understand your data) and tells us about the variables in your data set.</li>
-<li> Tells us where you obtained your data (access link etc) and save your data set in your R project, so that we can see the content.</li>
-<li> If you use abbreviations, be sure that you have given the long form of the abbreviation at your first mention.</li>
-<li> Do not use abbreviations such as "we'll do". Use the full form, such as "we will do".</li>
-<li> In addition to outputs, include your codes in the report as well.</li>
-<li> Turn off warnings and messages (warning=F, message=F).</li>
-<li> Align your code vertically, not horizontally. If it does not fit into a line, break down it into smaller pieces at appropriate places. </li>
-<li> Do not try to give too much information with a single graphic. It is overwhelming. Instead, use faceting (side-by-side small graphs).</li>
-<li> Do not forget to put x-axis title, y-axis title, main title. Graphics should be
-informative.</li>
-<li> Explain the graphics with a few sentences in your report. </li>
-<li> Have a visualization style and be consistent throughout the report.</li>
-<li> Do not use default ggplot2 colors. Try out different palettes for object colors and background colors.</li>
-<li> If you mention something at the introduction such as "we will do this", then show it in the report. Otherwise, omit it.</li>
-<li> In conclusion, shortly summarize your aim and findings.</li>
-<li> In the end this is a report!..It should be appealing for people to read it!..</li>
-</ul> </p>
----
-#### **Office Hours**
-
-- May 31, 2021 between 20:30-22:30.   
-- June 7, 2021 between 20:30-22:30.   
-- June 14, 2021 between 20:30-22:30.   
-- June 21, 2021 between 20:30-22:30.     
-
-#### **Zoom meeting link details**:
-
-
-[Join Zoom Meeting](https://itu-edu-tr.zoom.us/j/99088059412?pwd=bTNZcElreWd3Z1MyS0hvVnpLOEdrQT09)
-
-Meeting ID: 990 8805 9412  
-Passcode: 396830
-
-
 ---
 
 - Please visit the [NASA Earth Data's Covid-19 Dashboard](
@@ -110,14 +70,14 @@ knitr::include_graphics("logo/rshiny.png")
 
 ---
 #### Shiny package
-- [`Shiny`](https://shiny.rstudio.com/) is an `R` package that provides elegant and powerful web framework for **building interactive web applications (apps)** directly from `R`.
+-  [R Shiny](https://shiny.rstudio.com/) is an `R` package that provides elegant and powerful web framework for **building interactive web applications (apps)** directly from `R`.
 - You can host standalone apps on a **webpage** or build **dashboards**. 
 - Shiny applications are automatically live and outputs change instantly as users modify inputs, without requiring a reload of the browser.
 - You can also extend your Shiny apps with [CSS themes](http://rstudio.github.io/shinythemes/?_ga=2.128822476.1106871023.1621587722-51308884.1621587722), [htmlwidgets](http://www.htmlwidgets.org/), and [JavaScript](https://github.com/daattali/shinyjs/blob/master/README.md) actions.
 - To install and load the package:
 
-```{r, eval=F}
-install.packages("shiny")
+```{r}
+#install.packages("shiny")
 library(shiny)
 ```
 
@@ -449,7 +409,7 @@ server <- function(input, output) {
 
 
 
-- Each `render*()` function takes a single argument: an `R expression` surrounded by braces {} and and do some light pre-processing on the expression.
+- Each `render*()` function takes a single argument: an `R expression` surrounded by braces {} and do some light pre-processing on the expression.
 
 ---
 - The `R expression` can be one simple line of text, or it can involve many lines of code, as if it were a complicated function call.	
@@ -529,6 +489,10 @@ shinyApp(ui = ui, server = server)
 
 - <span style="color:purple">**The Human Development Index (HDI)** is a summary measure of average achievement in key dimensions of human development: a long and healthy life, being knowledgeable and have a decent standard of living. The HDI is the geometric mean of normalized indices for each of the three dimensions.</span>
 
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/hdi_index.png")
+```
+
 ---
 
 class: middle, center
@@ -555,7 +519,7 @@ View(data)
 
 ---
 #### Example: Countries-01
-- Filter the data for the year 2011 and develop a `Shiny` app which enables to select one of variables **human_development_index**, **corruption_perception_index**, **population**, **life_exp**, and **gdp_per_capita** through a  `input widget` to plot the selected variable on the horizontal axis and also enables to select another variable  through another `input widget` to plot that selected variable on the vertical axis.
+- Filter the data for the year 2011 and develop a `Shiny` app which enables to select one of variables **human_development_index**, **corruption_perception_index**, **population**, **life_exp**, and **gdp_per_capita** through an  `input widget` to plot the selected variable on the horizontal axis and also enables to select another variable  through another `input widget` to plot that selected variable on the vertical axis.
 - Afterwards, get a scatter plot of the selected two variables and identify the points by their **continent type** by assigning different **colors**.
                    
 ---
@@ -1038,7 +1002,11 @@ on this selection, create `SliderInput` widgets for "pct_noba", "pct_rent", "med
 ---
 class: middle, center
 
-<span style="color:purple">WISH YOU A GOOD WINTER BREAK!..☃️</span>
+<span style="color:purple">WISH YOU A GOOD FINAL EXAM WEEK & WINTER BREAK!..</span>
+
+<br>
+
+✏️ 📚  ☃️
 
                                
 

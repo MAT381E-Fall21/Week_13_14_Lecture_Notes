@@ -5,7 +5,7 @@ library(plotly)
 library(shinythemes)
 
 ## read data -------------------------------------------------------------------
-countries_data <- read_csv("/Users/gulinan/Desktop/Introduction to Data Science with R/Week_13-14/Week13_Lecture_Notes/source_files/data/countries_1998_2011.csv")
+countries_data <-read_csv("/Users/gulinan/Desktop/MAT381E_Introduction to Data Science/Week_13-14/Week_13_14_Lecture_Notes/data/countries_1998_2011.csv")
 
 ## numeric columns to plot
 numeric_columns <- c("human_development_index", "corruption_perception_index",
