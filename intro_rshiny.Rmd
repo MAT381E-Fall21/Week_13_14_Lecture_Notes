@@ -81,15 +81,8 @@ knitr::include_graphics("logo/rshiny.png")
 library(shiny)
 ```
 
-
 ---
-- Here is how `R Shiny` works at first sight:
-
-```{r, echo=FALSE, out.width="60%"}
-knitr::include_graphics("images/basic_structure.png")
-```
----
-- Let's see a few quick built-in `R Shiny` examples available:
+- Let's see a few quick **built-in** `R Shiny` examples available:
 
 ```{r, eval=F}
 library(shiny)
@@ -106,6 +99,12 @@ library(shiny)
 runExample("06_tabsets")    # tabbed panels  #radio buttons and slider widgets
 ```
 
+---
+- Here is how `R Shiny` works at first sight:
+
+```{r, echo=FALSE, out.width="60%"}
+knitr::include_graphics("images/basic_structure.png")
+```
 
 ---
 #### Create a Demo App

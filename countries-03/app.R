@@ -54,13 +54,12 @@ ui <- fluidPage(
 ## SERVER ######################################################################
 server <- function(input, output) {
     
- 
     output$countries_scatter <- renderPlot({
         ggplot(data = countries_data_2011, 
                aes_string(x = input$x_axis, y = input$y_axis)) +
             geom_point(aes_string(color="continent", size=input$size), alpha = input$transvalue) +
             #note that i am directly changing the characteristics of point. it is out of aes(). 
-            #i mean its value does not depend on a variable, that is why out of aes().
+            #i mean its value does not depend on a variable, that is why it is out of aes().
             theme_minimal()
     })
 }
