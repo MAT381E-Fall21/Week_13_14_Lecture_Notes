@@ -4,7 +4,7 @@
     <title>MAT381E-Week 13-14: Building Interactive Web Applications</title>
     <meta charset="utf-8" />
     <meta name="author" content="Gül İnan" />
-    <meta name="date" content="2022-01-02" />
+    <meta name="date" content="2022-01-09" />
     <script src="intro_rshiny_files/header-attrs-2.11/header-attrs.js"></script>
     <link href="intro_rshiny_files/remark-css-0.0.1/default.css" rel="stylesheet" />
     <script src="intro_rshiny_files/fabric-4.3.1/fabric.min.js"></script>
@@ -26,7 +26,7 @@ class: left, middle, my-title, title-slide
 # MAT381E-Week 13-14: Building Interactive Web Applications
 ### Gül İnan
 ### Department of Mathematics<br/>Istanbul Technical University
-### January 2, 2022
+### January 9, 2022
 
 ---
 
@@ -74,7 +74,7 @@ library(shiny)
 ```
 
 ---
-- Let's see a few quick built-in `R Shiny` examples available:
+- Let's see a few quick **built-in** `R Shiny` examples available:
 
 
 ```r
@@ -192,7 +192,7 @@ ui &lt;- fluidPage(
          # Main panel as output
          # The mainPanel() containing outputs.
          mainPanel(
-         #####Output come here  
+         #####Output comes here  
          )
   )
 )
@@ -468,6 +468,8 @@ shinyApp(ui = ui, server = server)
 
 &lt;img src="images/hdi_index.png" width="100%" /&gt;
 
+- [GINI Index](https://www.census.gov/topics/income-poverty/income-inequality/about/metrics/gini-index.html).
+- [Why geometric mean used in HDI rather than arithmetic mean?](http://hdr.undp.org/en/content/why-geometric-mean-used-hdi-rather-arithmetic-mean)
 ---
 
 class: middle, center
@@ -645,6 +647,8 @@ checkboxInput(inputId,
 
 [Source](https://plotly-r.com/index.html)
 ---
+#### plotly: An R interface to the plotly library
+- The R package [plotly](https://plotly-r.com/index.html) provides an R interface to the Javascript library [plotly](https://plotly.com/javascript/).
 - This question requires to use the `plotly::plotlyOutput` in the `ui` along with
 `plotly::renderPlotly` in the `server`.
 - We have already had a `ggplot` object, we can turn it into a `plotly` object via `ggplotly()` function.
@@ -664,7 +668,7 @@ checkboxInput(inputId,
 &lt;img src="images/subset_reactive.png" width="100%" /&gt;
 
 ---
-- Add a `UI` element for the user to select the year.
+- Add a `UI` widget element for the user to select the year.
 
 
 ```r
@@ -704,6 +708,17 @@ output$countries_scatter &lt;- renderPlotly({
 ```
 
 ---
+- - Use the new dataframe for printing the table.
+
+
+```r
+## create data table -------------------------------------
+    output$countries_table &lt;- renderDataTable({
+        if(input$show_table){countries_subset()}
+    })
+```
+
+---
 #### Example: Countries-08
 - Create a new reactive **countries_summary** as a new dataframe with median **gdp_per_capita** and **median life_exp per continent**.
 - Modify `DT::renderDataTable` to use **countries_summary**.
@@ -726,7 +741,8 @@ output$countries_scatter &lt;- renderPlotly({
 ]
 
 ---
-- This question requires to use the `tabsetPanel()` function in the `ui`:
+- This question requires to use the `tabsetPanel()` function in the `ui`.
+- Tabsets are useful for dividing output into multiple independently viewable sections.
 
 - **Usage**:
 
@@ -779,7 +795,6 @@ names(tags)
 |`strong()`        | Bold text.          |
 |`span()`          | Text color.         |
 |`a()`             | Hyperlink.          |
-|`hr()`            | Horizontal line.    |
 |`br()`            | Line break.         |
 |`img()`           | Embed image.        |
 |`iframe()`        | Embed Video.        |
@@ -828,7 +843,7 @@ ui &lt;- fluidPage(
     ## Some line break.
     tags$br(),
     
-    tags$span(style="color:purple", "Have a good summer!..")
+    tags$span(style="color:purple", "Have a good winter break!..")
 )
 
 # Define server logic required to draw a histogram
@@ -898,7 +913,7 @@ class: middle, center
 - Source on [deploying a react app on Github pages](https://medium.com/mobile-web-dev/how-to-build-and-deploy-a-react-app-to-github-pages-in-less-than-5-minutes-d6c4ffd30f14). 
 
 ---
-#### Vulnerability index
+#### Vulnerability index (at home)
 - Visit the `Shiny` app source code on **vulnerability** at https://github.com/BPSTechServices/vulnerability_weighting_map.
 
 &lt;img src="images/vulnerability.png" width="80%" /&gt;

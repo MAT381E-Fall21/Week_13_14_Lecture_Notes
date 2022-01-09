@@ -2,6 +2,7 @@
 library(shiny)
 library(tidyverse)
 library(plotly)
+library(DT)
 
 ## read data -------------------------------------------------------------------
 
@@ -59,7 +60,7 @@ ui <- fluidPage(
             
             plotlyOutput(outputId = "countries_scatter"),
              
-            dataTableOutput(outputId = "countries_table")
+           dataTableOutput(outputId = "countries_table")
         )
     )
 )
@@ -85,17 +86,15 @@ server <- function(input, output) {
                                        size = input$point_size,
                                        label = "country"))+
             geom_point(alpha = input$transvalue)+
-            theme_minimal()+
-            labs(title = input$year)
+            theme_minimal()
         
         ggplotly(p_scatter)
     })
     
     ## create data table -------------------------------------
     output$countries_table <- renderDataTable({
-        if(input$show_table){
-            datatable(countries_subset(), rownames = FALSE) ###pay attention:countries_subset()
-        }
+        if(input$show_table){countries_subset()}
+        
     })
 }
 

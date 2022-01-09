@@ -20,7 +20,7 @@ ui <- fluidPage(
         sidebarPanel(
             
             ## select variable for scatter plot x-axis --------------
-            ## label: widget label.  
+    
             selectInput(inputId = "x_axis", label = "X axis",
                         choices = c("human_development_index", "corruption_perception_index",
                                     "population", "life_exp", "gdp_per_capita"),

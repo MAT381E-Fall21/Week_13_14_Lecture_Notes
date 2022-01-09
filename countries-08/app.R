@@ -72,7 +72,7 @@ server <- function(input, output) {
     
     ## calculate summaries per continent -----------------
     countries_summary <- reactive({
-        countries_subset() %>%      ###pay attention:countries_subset() 
+        countries_subset() %>%      ###pay attention:countries_subset() #treats as a function. return is function.
             group_by(continent) %>% 
             summarise(gdp_median = median(gdp_per_capita, na.rm = TRUE) %>% round(2),
                       life_exp_median = median(life_exp, na.rm = TRUE) %>% round(2))
@@ -88,8 +88,7 @@ server <- function(input, output) {
                                        size = input$point_size,
                                        label = "country"))+
             geom_point(alpha = input$transvalue)+
-            theme_minimal()+
-            labs(title = input$year)
+            theme_minimal()
         
         ggplotly(p_scatter)
     })
@@ -97,9 +96,8 @@ server <- function(input, output) {
     
     ## create data table -------------------------------------
     output$countries_table <- renderDataTable({
-        if(input$show_table){
-            datatable(countries_summary(), rownames = FALSE)  ###pay attention:countries_summary() 
-        }
+        if(input$show_table){countries_summary()} ###pay attention:countries_summary() 
+        
     })
 }
 

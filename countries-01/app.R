@@ -14,19 +14,22 @@ countries_data_2011 <- countries_data %>%
 ## UI ##########################################################################
 ui <- fluidPage(
     
-    sidebarLayout(#position = "right",
+    sidebarLayout(#position = "right", #default widget position is left
         
         ## define inputs in sidebar -------------------------------
         sidebarPanel(
             
-            ## select variable for scatter plot x-axis --------------
-            ## label: widget label.  
+            ##select variable widget for scatter plot x-axis --------------
+            #inputId: The input slot that will be used to access the value.	
+            #label:	Display label for the control, or NULL for no label.
+            #choices:	List of values to select from. column names from the data set.
+            #selected: The initially selected value.	
             selectInput(inputId = "x_axis", label = "X axis",
                         choices = c("human_development_index", "corruption_perception_index",
                                     "population", "life_exp", "gdp_per_capita"),
                         selected = "human_development_index"),
             
-            ## select variable for scatter plot y-axis ---------------
+            ##select variable widget for scatter plot y-axis --------------
             selectInput(inputId = "y_axis", label = "Y axis",
                         choices = c("human_development_index", "corruption_perception_index",
                                     "population", "life_exp", "gdp_per_capita"),
@@ -47,7 +50,7 @@ server <- function(input, output) {
     
     ## input and output are list-type objects. list elements will be named by me.
     ## create a scatter plot.
-    ## output is a reserved word.
+    ## input and output are reserved words.
     ## countries_scatter is given by me.
     ## input has two parts: x_axis and y_axis
     ## renderPlot({expr}): Renders a reactive plot that is suitable for assigning to an output plot.

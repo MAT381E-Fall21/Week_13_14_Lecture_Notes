@@ -20,7 +20,7 @@ ui <- fluidPage(
         sidebarPanel(
             
             ## select variable for scatter plot x-axis --------------
-            ## label: widget label.  
+        
             selectInput(inputId = "x_axis", label = "X axis",
                         choices = c("human_development_index", "corruption_perception_index",
                                     "population", "life_exp", "gdp_per_capita"),
@@ -42,6 +42,9 @@ ui <- fluidPage(
                         min = 0, max = 1, value = 0.8),
             
             ## checkbox to show/hide data table -------------------
+            ## inputId: The input slot that will be used to access the value.	
+            ## label: Display label for the control, or NULL for no label.
+            ## value: Initial value (TRUE or FALSE).
             checkboxInput(inputId = "show_table", label = "Show table",
                           value = TRUE)
             

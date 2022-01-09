@@ -24,7 +24,7 @@ ui <- fluidPage(
         sidebarPanel(
             
             ## select variable for scatter plot x-axis --------------
-            ## label: widget label.  
+
             selectInput(inputId = "x_axis", label = "X axis",
                         choices = c("human_development_index", "corruption_perception_index",
                                     "population", "life_exp", "gdp_per_capita"),
@@ -72,13 +72,14 @@ server <- function(input, output) {
 #https://stackoverflow.com/questions/37663854/convert-ggplot-object-to-plotly-in-shiny-application
     output$countries_scatter <- renderPlotly({
       
-        ggplotly(ggplot(data = countries_data_2011, 
-                     aes_string(x = input$x_axis, y = input$y_axis)) +
-                     geom_point(aes_string(color="continent", size=input$size),
-                     alpha = input$transvalue) + 
-                     theme_minimal()) 
-         
+    
+      p_scatter <- ggplot(data = countries_data_2011, 
+                          aes_string(x = input$x_axis, y = input$y_axis)) +
+                   geom_point(aes_string(color="continent", size=input$size),
+                             alpha = input$transvalue) + 
+                   theme_minimal()
       
+      ggplotly(p_scatter)
         
     })
     

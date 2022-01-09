@@ -207,7 +207,7 @@ ui <- fluidPage(
          # Main panel as output
          # The mainPanel() containing outputs.
          mainPanel(
-         #####Output come here  
+         #####Output comes here  
          )
   )
 )
@@ -492,6 +492,8 @@ shinyApp(ui = ui, server = server)
 knitr::include_graphics("images/hdi_index.png")
 ```
 
+- [GINI Index](https://www.census.gov/topics/income-poverty/income-inequality/about/metrics/gini-index.html).
+- [Why geometric mean used in HDI rather than arithmetic mean?](http://hdr.undp.org/en/content/why-geometric-mean-used-hdi-rather-arithmetic-mean)
 ---
 
 class: middle, center
@@ -669,6 +671,8 @@ knitr::include_graphics("images/plotly_book.png")
 
 [Source](https://plotly-r.com/index.html)
 ---
+#### plotly: An R interface to the plotly library
+- The R package [plotly](https://plotly-r.com/index.html) provides an R interface to the Javascript library [plotly](https://plotly.com/javascript/).
 - This question requires to use the `plotly::plotlyOutput` in the `ui` along with
 `plotly::renderPlotly` in the `server`.
 - We have already had a `ggplot` object, we can turn it into a `plotly` object via `ggplotly()` function.
@@ -690,7 +694,7 @@ knitr::include_graphics("images/subset_reactive.png")
 ```
 
 ---
-- Add a `UI` element for the user to select the year.
+- Add a `UI` widget element for the user to select the year.
 
 ```{r, eval=F}
 ## add select variable for year 
@@ -730,6 +734,16 @@ output$countries_scatter <- renderPlotly({
 ```
 
 ---
+- - Use the new dataframe for printing the table.
+
+```{r, eval=F}
+## create data table -------------------------------------
+    output$countries_table <- renderDataTable({
+        if(input$show_table){countries_subset()}
+    })
+```
+
+---
 #### Example: Countries-08
 - Create a new reactive **countries_summary** as a new dataframe with median **gdp_per_capita** and **median life_exp per continent**.
 - Modify `DT::renderDataTable` to use **countries_summary**.
@@ -758,7 +772,8 @@ knitr::include_graphics("images/tabset2.png")
 ]
 
 ---
-- This question requires to use the `tabsetPanel()` function in the `ui`:
+- This question requires to use the `tabsetPanel()` function in the `ui`.
+- Tabsets are useful for dividing output into multiple independently viewable sections.
 
 - **Usage**:
 
@@ -810,7 +825,6 @@ names(tags)
 |`strong()`        | Bold text.          |
 |`span()`          | Text color.         |
 |`a()`             | Hyperlink.          |
-|`hr()`            | Horizontal line.    |
 |`br()`            | Line break.         |
 |`img()`           | Embed image.        |
 |`iframe()`        | Embed Video.        |
@@ -859,7 +873,7 @@ ui <- fluidPage(
     ## Some line break.
     tags$br(),
     
-    tags$span(style="color:purple", "Have a good summer!..")
+    tags$span(style="color:purple", "Have a good winter break!..")
 )
 
 # Define server logic required to draw a histogram
@@ -934,7 +948,7 @@ class: middle, center
 - Source on [deploying a react app on Github pages](https://medium.com/mobile-web-dev/how-to-build-and-deploy-a-react-app-to-github-pages-in-less-than-5-minutes-d6c4ffd30f14). 
 
 ---
-#### Vulnerability index
+#### Vulnerability index (at home)
 - Visit the `Shiny` app source code on **vulnerability** at https://github.com/BPSTechServices/vulnerability_weighting_map.
 
 ```{r, echo=FALSE, out.width="80%"}

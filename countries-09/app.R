@@ -67,11 +67,11 @@ ui <- fluidPage(#theme = shinytheme("superhero"),
         mainPanel(
             
             ## show output in multiple tabs ----------------
-            tabsetPanel(type = "tabs",
-                        tabPanel(title = "Plot",
+            tabsetPanel(type = "tabs", #standard look
+                        tabPanel(title = "Plot", #display title for the tab
                                  plotlyOutput(outputId = "countries_scatter")),
                         tabPanel(title = "Data",
-                                 DT::dataTableOutput(outputId = "countries_table"))
+                                 dataTableOutput(outputId = "countries_table"))
                         
             )
             
@@ -107,8 +107,7 @@ server <- function(input, output) {
                                        size = input$point_size,
                                        label = "country"))+
             geom_point(alpha = input$transvalue)+
-            theme_minimal()+
-            labs(title = input$year)
+            theme_minimal()
         
         ggplotly(p_scatter)
     })
@@ -116,9 +115,8 @@ server <- function(input, output) {
     
     ## create data table -------------------------------------
     output$countries_table <- renderDataTable({
-        if(input$show_table){
-            datatable(countries_summary(), rownames = FALSE)  ###pay attention:countries_summary() 
-        }
+        if(input$show_table){countries_summary()} ###pay attention:countries_summary()
+        
     })
 }
 
